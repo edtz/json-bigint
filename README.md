@@ -122,36 +122,6 @@ Default type: object, With option type: string
 
 ```
 
-#### options.useNativeBigInt, boolean, default false
-
-Specifies if parser uses native BigInt instead of bignumber.js
-
-example:
-
-```js
-var JSONbig = require('json-bigint');
-var JSONbigNative = require('json-bigint')({ useNativeBigInt: true });
-var key = '{ "key": 993143214321423154315154321 }';
-console.log(`\n\nStoring the Number as native BigInt, instead of a BigNumber`);
-console.log('Input:', key);
-var normal = JSONbig.parse(key);
-var nativeBigInt = JSONbigNative.parse(key);
-console.log(
-  'Default type: %s, With option type: %s',
-  typeof normal.key,
-  typeof nativeBigInt.key
-);
-```
-
-Output
-
-```
-Storing the Number as native BigInt, instead of a BigNumber
-Input: { "key": 993143214321423154315154321 }
-Default type: object, With option type: bigint
-
-```
-
 #### options.alwaysParseAsBig, boolean, default false
 
 Specifies if all numbers should be stored as BigNumber.
@@ -190,7 +160,6 @@ If you want to force all numbers to be parsed as native `BigInt`
 ```js
 var JSONbig = require('json-bigint')({
   alwaysParseAsBig: true,
-  useNativeBigInt: true,
 });
 ```
 
